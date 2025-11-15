@@ -1,19 +1,69 @@
 programa
 {
+	cadeia nomesFilmes[10]
+	inteiro anosLancamentos[10], vezesLocado[10], quantidade = 0
+	logico locado[10]//Verdadeiro = locado/ Falso = Disponivel 
+	
+	funcao filmesDisponiveis(){
+		para(quantidade=0; quantidade < 10; quantidade++){
+			se(locado[quantidade] == falso){
+				escreva(quantidade, nomesFilmes[quantidade], "\n")
+			}
+		}
+	}
+	
 	funcao cadastrarFilme(){
-			
+		se(quantidade >= 10){
+			escreva("\nLimite Maximo atingido")
+			retorne 
+		}senao{
+			escreva("\nDigite o nome do filme: ")
+			leia(nomesFilmes[quantidade])
+			escreva("Digite o ano de lançamento: ")
+			leia(anosLancamentos[quantidade])
+			vezesLocado[quantidade] = 0
+			locado[quantidade] = falso
+			quantidade++
+		}
 	}
 	
 	funcao listarFilmes(){
-		
+		se(quantidade == 0){
+			escreva("\nNenhum filme cadastrado\n")
+		}senao{
+			escreva("\n---- LISTA DE FILMES ----\n")
+			para(quantidade = 0; quantidade < 10; quantidade++){
+				//preencher o conjunto vazio  das variaveis inteiro e logico
+				se(nomesFilmes[quantidade] == " "){
+					
+				}
+				 escreva("Nome do filme: ",nomesFilmes[quantidade], "\nData de lançamento: ", anosLancamentos[quantidade], "\nQuantidade de vezes que foi locado: ", vezesLocado[quantidade])
+				 se(locado[quantidade]){
+				 	escreva("\nLocado")
+				 }senao{
+				 	escreva("\nDisponivel")
+				}
+				 escreva("\n------------------------------------------\n")
+			}
+		}
 	}
 
 	funcao filmesLocados(){
-		
+		para(quantidade=0; quantidade < 10; quantidade++){
+			se(locado[quantidade]){
+				escreva(nomesFilmes[quantidade], "\n")
+			}
+		}
 	}
 
 	funcao alugarFilme(){
+		inteiro opcao
+		filmesDisponiveis()
+		escreva("\nEscolha a opção do filme desejado: ")
+		leia(opcao)
+		escolha(opcao){
 		
+		}
 	}
 
 	funcao devolverFilme(){
@@ -37,7 +87,7 @@ programa
 	}
 
 	funcao sair(){
-		
+		escreva("Saindo...")
 	}
 
 	funcao apresentar(){
@@ -169,14 +219,3 @@ programa
 		menuPrincipal()
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 2604; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
