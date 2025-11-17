@@ -5,26 +5,40 @@ programa
 	logico locado[10]//Verdadeiro = locado/ Falso = Disponivel 
 	
 	funcao filmesDisponiveis(){
-		para(quantidade=0; quantidade < 10; quantidade++){
-			se(locado[quantidade] == falso){
-				escreva(quantidade, nomesFilmes[quantidade], "\n")
+		se(quantidade == 0){
+			escreva("Nenhum filme cadastrado!\n")
+			retorne
+		}
+		escreva("Filmes disponíveis: ")
+		inteiro i
+		para(i=0; i < quantidade; i++){
+			se(locado[i] == falso){
+				escreva(i, "- ", nomesFilmes[i], "\n")
 			}
 		}
 	}
 	
 	funcao cadastrarFilme(){
+		inteiro i
 		se(quantidade >= 10){
 			escreva("\nLimite Maximo atingido")
 			retorne 
-		}senao{
+		}
+		
 			escreva("\nDigite o nome do filme: ")
 			leia(nomesFilmes[quantidade])
+			para(i=0;i<=quantidade-1;i++){
+				se(nomesFilmes[i] == nomesFilmes[quantidade]){
+					escreva("Filme já cadastrado!")
+					retorne
+				}
+			}
 			escreva("Digite o ano de lançamento: ")
 			leia(anosLancamentos[quantidade])
 			vezesLocado[quantidade] = 0
 			locado[quantidade] = falso
 			quantidade++
-		}
+			escreva("Filme cadastrado com sucesso!")
 	}
 	
 	funcao listarFilmes(){
@@ -33,7 +47,6 @@ programa
 		}senao{
 			escreva("\n---- LISTA DE FILMES ----\n")
 			para(quantidade = 0; quantidade < 10; quantidade++){
-				//preencher o conjunto vazio  das variaveis inteiro e logico
 				se(nomesFilmes[quantidade] == " "){
 					
 				}
@@ -49,21 +62,33 @@ programa
 	}
 
 	funcao filmesLocados(){
-		para(quantidade=0; quantidade < 10; quantidade++){
-			se(locado[quantidade]){
-				escreva(nomesFilmes[quantidade], "\n")
+		inteiro i
+		se(quantidade == 0){
+			escreva("Nenhum filme cadastrado!")
+			retorne
+		}
+		escreva("Filmes locados")
+		para(i=0; i < quantidade; i++){
+			se(locado[i]){
+				escreva(nomesFilmes[i], "\n")
 			}
 		}
 	}
 
 	funcao alugarFilme(){
 		inteiro opcao
-		filmesDisponiveis()
-		escreva("\nEscolha a opção do filme desejado: ")
-		leia(opcao)
-		escolha(opcao){
-		
+		se(quantidade == 0){
+			escreva("Nenhum filme cadastrado!")
+			retorne
 		}
+		escreva("Filmes disponíveis para locação")
+		filmesDisponiveis()
+		escreva("\nEscolha a opção do filme desejado (Numero): ")
+		leia(opcao)
+		se(opcao < 0 ou opcao >= quantidade){
+			escreva("Opção Invalida")
+		}
+		
 	}
 
 	funcao devolverFilme(){
