@@ -87,11 +87,26 @@ programa
 		leia(opcao)
 		se(opcao < 0 ou opcao >= quantidade){
 			escreva("Opção Invalida")
+			retorne
 		}
-		
+		se(locado[opcao]){
+			escreva("Filme já está locado")
+			retorne
+		}
+		locado[opcao] = verdadeiro
+		vezesLocado[opcao] = vezesLocado[opcao]+1
+		escreva("Filme Locado com sucesso!")
 	}
 
 	funcao devolverFilme(){
+		inteiro i, opcao
+		logico temLocados = falso
+
+		se(quantidade == 0){
+			escreva("Nenhum filme cadastrado!")
+			retorne
+		}
+		escreva("Filmes Locados")
 		
 	}
 
@@ -124,15 +139,15 @@ programa
 		enquanto (opcao != 10){
 			escreva("\n---- MENU ----\n")
             	escreva("1 - Cadastrar um filme\n")
-            	escreva("2 - Listar Filmes locados e disponíveis \n")
+            	escreva("2 - Listar Filmes\n")
             	escreva("3 - Filmes locados\n")
             	escreva("4 - Alugar um filme\n")
             	escreva("5 - Devolver um filme\n")
             	escreva("6 - Filme mais locado\n")
-            	escreva("7 - Buscar um filme pelo nome\n")
+            	escreva("7 - Buscar filme\n")
             	escreva("8 - Atualizar dados de um filme\n")
             	escreva("9 - Estatísticas gerais\n")
-            	escreva("10 -  Sair do programa\n")
+            	escreva("10 - Sair do programa\n")
             	escreva("Escolha uma opção: ")
             	leia(opcao)
 
