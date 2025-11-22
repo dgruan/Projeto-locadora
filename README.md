@@ -98,7 +98,7 @@ Finaliza o programa.
 📁 TocaToonVideoManager
 │
 ├── README.md
-└── main.por (código fonte principal)
+└── projeto locadora.por (código fonte principal)
 ```
 
 ---
