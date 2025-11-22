@@ -48,10 +48,12 @@ programa
 		}senao{
 			escreva("\n---- LISTA DE FILMES ----\n")
 			para(i = 0; i < quantidade; i++){
-				se(nomesFilmes[quantidade] == " "){	
+				se(nomesFilmes[i] == " "){	
 				}
-				 escreva("Nome do filme: ",nomesFilmes[quantidade], "\nData de lançamento: ", anosLancamentos[quantidade], "\nQuantidade de vezes que foi locado: ", vezesLocado[quantidade])
-				 se(locado[quantidade]){
+				 escreva("Nome do filme: ",nomesFilmes[i])
+				 escreva("\nData de lançamento: ", anosLancamentos[i])
+				 escreva("\nQuantidade de vezes que foi locado: ", vezesLocado[i])
+				 se(locado[i]){
 				 	escreva("\nLocado")
 				 }senao{
 				 	escreva("\nDisponivel")
@@ -143,13 +145,15 @@ programa
 				indiceMaior= i
 			}
 		}
+		escreva("\n---- FILME MAIS LOCADO ----\n")
 		escreva("Filme mais locado: ", nomesFilmes[indiceMaior])
-		escreva("Ano de lançamento: ", anosLancamentos[indiceMaior])
-		escreva("Quantidade de vezes locado: ", vezesLocado[indiceMaior])
+		escreva("\nAno de lançamento: ", anosLancamentos[indiceMaior])
+		escreva("\nQuantidade de vezes locado: ", vezesLocado[indiceMaior])
 		se(locado[indiceMaior]){
 			escreva("Filme locado.")
+		}senao{
+			escreva("Filme disponível.")
 		}
-		escreva("Filme disponível.")
 	}
 
 	funcao buscarFilme(){
@@ -270,6 +274,52 @@ programa
 	}
 
 	funcao apresentar(){
+		cadeia enter
+    		escreva("--------------------------------------------------")
+    		escreva("\n               TOCATOON VIDEO MANAGER           ")
+    		escreva("\n--------------------------------------------------")
+    		escreva("")
+    		escreva("\nBem-vindo ao TOCATOON VIDEO MANAGER, um programa desenvolvido")
+    		escreva("\npela equipe TocaToonCreators para gerenciar uma videolocadora.")
+    		escreva("")
+    		escreva("\nPressione Enter para continuar...")
+    		leia(enter)
+
+    		escreva("")
+    		escreva("\nNosso software permite cadastrar filmes, verificar filmes disponíveis,")
+    		escreva("\nalugar e devolver filmes, buscar informações e gerar estatísticas gerais.")
+    		escreva("")
+    		escreva("\nPressione Enter para continuar...")
+    		leia(enter)
+
+    		escreva("")
+    		escreva("\nO programa foi criado com atenção aos detalhes para que a gestão da")
+    		escreva("\nvideolocadora seja simples, rápida e eficiente, simulando a experiência")
+    		escreva("\nde uma videolocadora do ano 2000, onde os clientes precisavam devolver")
+    		escreva("\nos filmes alugados.")
+    		escreva("")
+    		escreva("\nPressione Enter para continuar...")
+    		leia(enter)
+
+    		escreva("")
+    		escreva("\nEquipe de Desenvolvimento:")
+    		escreva("\n - Vinicius")
+    		escreva("\n - Kaik")
+    		escreva("\n - Douglas")
+    		escreva("")
+    		escreva("\nPressione Enter para continuar...")
+    		leia(enter)
+
+    		escreva("")
+    		escreva("\nEsperamos que você aproveite o programa e que ele facilite a gestão")
+    		escreva("\ndos filmes na sua videolocadora!")
+    		escreva("\n")
+    		escreva("\nSe quiser melhorar, expandir ou criar novas versões, estamos aqui")
+    		escreva("TocaToonCreators – Criando ideias, histórias e código.")
+    		escreva("\n--------------------------------------------------")
+    		escreva("")
+    		escreva("\nPressione Enter para voltar ao menu principal...")
+    		leia(enter)
 		
 	}
 
