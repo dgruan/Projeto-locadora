@@ -14,9 +14,9 @@ Este projeto foi criado em **Portugol Studio**, explorando modularização, veto
 
 ## 🧑‍💻 **Equipe de Desenvolvimento – TocaToonCreators**
 
-* **Vinicis** – Lógica e arquitetura
-* **Kaik** – Estruturas e validações
-* **Douglas** – Funcionalidades avançadas e interface textual
+* **Vinicius**
+* **Kaik**
+* **Douglas** 
 
 ---
 
