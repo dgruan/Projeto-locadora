@@ -2,7 +2,7 @@ programa
 {
 	cadeia nomesFilmes[10]
 	inteiro anosLancamentos[10], vezesLocado[10], quantidade = 0
-	logico locado[10] //Verdadeiro = locado/ Falso = Disponivel 
+	logico locado[10] // Verdadeiro = locado / Falso = Disponivel 
 	
 	funcao filmesDisponiveis(){
 		se(quantidade == 0){
@@ -146,7 +146,7 @@ programa
 			retorne
 		}
 		para(i = 0; i < quantidade; i++){
-			se(vezesLocado[i]>maiorQuantidade){
+			se(vezesLocado[i] > maiorQuantidade){
 				maiorQuantidade = vezesLocado[i]
 				indiceMaior= i
 			}
@@ -166,7 +166,7 @@ programa
 	funcao buscarFilme(){
 		cadeia nomeBusca
 		inteiro i
-		logico encontrado=falso
+		logico encontrado = falso
 		se(quantidade == 0){
 			escreva("\nNenhum filme cadastrado!\n")
 			retorne
@@ -457,3 +457,4 @@ programa
 		menuPrincipal()
 	}
 }
+
