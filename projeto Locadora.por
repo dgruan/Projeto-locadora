@@ -2,18 +2,18 @@ programa
 {
 	cadeia nomesFilmes[10]
 	inteiro anosLancamentos[10], vezesLocado[10], quantidade = 0
-	logico locado[10]//Verdadeiro = locado/ Falso = Disponivel 
+	logico locado[10] //Verdadeiro = locado/ Falso = Disponivel 
 	
 	funcao filmesDisponiveis(){
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!\n")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		escreva("Filmes disponíveis: ")
+		escreva("\nFilmes disponíveis: ")
 		inteiro i
-		para(i=0; i < quantidade; i++){
+		para(i = 0; i < quantidade; i++){
 			se(locado[i] == falso){
-				escreva(i, "- ", nomesFilmes[i], "\n")
+				escreva("\n", i, " - ", nomesFilmes[i])
 			}
 		}
 	}
@@ -21,15 +21,15 @@ programa
 	funcao cadastrarFilme(){
 		inteiro i
 		se(quantidade >= 10){
-			escreva("\nLimite Maximo atingido")
+			escreva("\nLimite Maximo atingido!\n")
 			retorne 
 		}
 		
 			escreva("\nDigite o nome do filme (apenas minúsculas, sem acento): ")
 			leia(nomesFilmes[quantidade])
-			para(i=0;i<=quantidade-1;i++){
+			para(i = 0; i <= quantidade - 1; i++){
 				se(nomesFilmes[i] == nomesFilmes[quantidade]){
-					escreva("Filme já cadastrado!")
+					escreva("Filme já cadastrado!\n")
 					retorne
 				}
 			}
@@ -38,7 +38,8 @@ programa
 			vezesLocado[quantidade] = 0
 			locado[quantidade] = falso
 			quantidade++
-			escreva("Filme cadastrado com sucesso!")
+			escreva("\nFilme cadastrado com sucesso!")
+			escreva("\n------------------------------------------\n")
 	}
 	
 	funcao listarFilmes(){
@@ -50,13 +51,13 @@ programa
 			para(i = 0; i < quantidade; i++){
 				se(nomesFilmes[i] == " "){	
 				}
-				 escreva("Nome do filme: ",nomesFilmes[i])
+				 escreva("Nome do filme: ", nomesFilmes[i])
 				 escreva("\nData de lançamento: ", anosLancamentos[i])
 				 escreva("\nQuantidade de vezes que foi locado: ", vezesLocado[i])
 				 se(locado[i]){
-				 	escreva("\nLocado")
+				 	escreva("\nLocado.\n")
 				 }senao{
-				 	escreva("\nDisponivel")
+				 	escreva("\nDisponivel.\n")
 				}
 				 escreva("\n------------------------------------------\n")
 			}
@@ -66,38 +67,42 @@ programa
 	funcao filmesLocados(){
 		inteiro i
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		escreva("Filmes locados")
-		para(i=0; i < quantidade; i++){
+		escreva("\n---- FILMES LOCADOS ----\n")
+		para(i = 0; i < quantidade; i++){
 			se(locado[i]){
 				escreva(nomesFilmes[i], "\n")
+			}senao{
+				escreva("\nNenhum filme foi locado no momento!\n")
 			}
 		}
+		escreva("\n------------------------------------------\n")
 	}
 
 	funcao alugarFilme(){
 		inteiro opcao
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		escreva("Filmes disponíveis para locação")
+		escreva("\n---- LISTA DE FILMES ----\n")
 		filmesDisponiveis()
 		escreva("\nEscolha a opção do filme desejado (Numero): ")
 		leia(opcao)
 		se(opcao < 0 ou opcao >= quantidade){
-			escreva("Opção Invalida")
+			escreva("\nOpção Invalida!\n")
 			retorne
 		}
 		se(locado[opcao]){
-			escreva("Filme já está locado")
+			escreva("\nFilme já está locado.\n")
 			retorne
 		}
 		locado[opcao] = verdadeiro
-		vezesLocado[opcao] = vezesLocado[opcao]+1
-		escreva("Filme Locado com sucesso!")
+		vezesLocado[opcao] = vezesLocado[opcao] + 1
+		escreva("\nFilme Locado com sucesso!")
+		escreva("\n------------------------------------------\n")
 	}
 
 	funcao devolverFilme(){
@@ -105,55 +110,57 @@ programa
 		logico temLocados = falso
 
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		escreva("Filmes locados: ")
-		para(i=0;i<quantidade;i++){
+		escreva("\n---- LISTA DE FILMES ----\n")
+		para(i = 0; i < quantidade; i++){
 			se(locado[i]){
-				escreva(i, "-", nomesFilmes[i],"\n")
+				escreva("\n", i, " - ", nomesFilmes[i])
 				temLocados = verdadeiro
 			}
 		}
 		se(temLocados==falso){
-			escreva("Nenhum filme locado no momento")
+			escreva("\nNenhum filme locado no momento.\n")
 			retorne
 		}
-		escreva("Escolha a opção que você deseja devolver (número):")
+		escreva("\nEscolha a opção que você deseja devolver (número): ")
 		leia(opcao)
-		se(opcao<0 ou opcao>=quantidade){
-			escreva("Opção inválida")
+		se(opcao < 0 ou opcao >= quantidade){
+			escreva("\nOpção inválida.\n")
 			retorne
 		}
 		se(locado[opcao] == falso){
-			escreva("Esse filme não está mais locado")
+			escreva("\nEsse filme não está mais locado\n")
 			retorne
 		}
 		locado[opcao] = falso
-		escreva("Filme devolvido com sucesso!")
+		escreva("\nFilme devolvido com sucesso!")
+		escreva("\n------------------------------------------\n")
 	}
 
 	funcao filmeMaisLocado(){
-		inteiro i, indiceMaior=-1, maiorQuantidade=-1
+		inteiro i, indiceMaior = -1, maiorQuantidade=-1
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		para(i=0;i<quantidade;i++){
+		para(i = 0; i < quantidade; i++){
 			se(vezesLocado[i]>maiorQuantidade){
 				maiorQuantidade = vezesLocado[i]
 				indiceMaior= i
 			}
 		}
 		escreva("\n---- FILME MAIS LOCADO ----\n")
-		escreva("Filme mais locado: ", nomesFilmes[indiceMaior])
+		escreva("\nFilme mais locado: ", nomesFilmes[indiceMaior])
 		escreva("\nAno de lançamento: ", anosLancamentos[indiceMaior])
 		escreva("\nQuantidade de vezes locado: ", vezesLocado[indiceMaior])
 		se(locado[indiceMaior]){
-			escreva("Filme locado.")
+			escreva("\nFilme locado\n.")
 		}senao{
-			escreva("Filme disponível.")
+			escreva("\nFilme disponível.\n")
 		}
+		escreva("\n------------------------------------------\n")
 	}
 
 	funcao buscarFilme(){
@@ -161,28 +168,29 @@ programa
 		inteiro i
 		logico encontrado=falso
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!\n")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		escreva("Digite o nome do filme que você deseja encontrar (apenas minúsculas, sem acento): ")
+		escreva("\nDigite o nome do filme que você deseja encontrar (apenas minúsculas, sem acento): ")
 		leia(nomeBusca)
-		para(i=0;i<quantidade;i++){
+		para(i = 0; i < quantidade; i++){
 			se(nomesFilmes[i]==nomeBusca){
 				encontrado=verdadeiro
 				escreva("\nFilme encontrado")
-				escreva("Nome: ",nomesFilmes[i])
-				escreva("Ano de lançamento: ",anosLancamentos[i])
-				escreva("Quantidade de vezes locado: ",vezesLocado[i])
+				escreva("\nNome: ", nomesFilmes[i])
+				escreva("\nAno de lançamento: ", anosLancamentos[i])
+				escreva("\nQuantidade de vezes locado: ", vezesLocado[i])
 				se(locado[i]){
-					escreva("Filme locado.")
+					escreva("\nFilme locado.\n.")
 					retorne
-				}
-				escreva("Filme disponível.")
+				}senao{
+				escreva("\nFilme disponível.\n")
 				retorne
+				}
 			}	
 		}
-		se(encontrado==falso){
-			escreva("Filme não encontrado.")
+		se(encontrado == falso){
+			escreva("\nFilme não encontrado.\n")
 		}
 	}
 
@@ -191,86 +199,87 @@ programa
 		inteiro i, j, k, novoAno, opcao, novaQuantidadeLocacoes
 		logico novoStatus
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		escreva("Atualizar dados do filme")
-		escreva("Filmes cadastrados")
-		para(i=0;i<quantidade;i++){
-			escreva(i, "-", nomesFilmes[i])
+		escreva("\nAtualizar dados do filme")
+		escreva("\nFilmes cadastrados")
+		para(i = 0; i < quantidade; i++){
+			escreva("\n", i, " - ", nomesFilmes[i])
 		}
-		escreva("Informe o número do filme que você deseja atualizar: ")
+		escreva("\nInforme o número do filme que você deseja atualizar: ")
 		leia(opcao)
-		se(opcao<0 ou opcao>=quantidade){
-			escreva("Opção inválida")
+		se(opcao < 0 ou opcao >= quantidade){
+			escreva("Opção inválida!\n")
 			retorne
 		}
-		escreva("Qual dado você deseja atualizar?")
-		escreva("1-Nome")
-		escreva("2-Ano de lançamento")
-		escreva("3-Quantidade de vezes locado")
-		escreva("4-Status (locado/disponível)")
-		escreva("Escolha: ")
+		escreva("\nQual dado você deseja atualizar?")
+		escreva("\n1-Nome")
+		escreva("\n2-Ano de lançamento")
+		escreva("\n3-Quantidade de vezes locado")
+		escreva("\n4-Status (locado/disponível)")
+		escreva("\nEscolha: ")
 		leia(j)
 		escolha(j){
 			caso 1: 
-			escreva("Escreva o novo nome do filme: ")
+			escreva("\nEscreva o novo nome do filme: ")
 			leia(novoNome)
-			nomesFilmes[opcao]=novoNome
-			escreva("Nome atualizado com sucesso!")
+			nomesFilmes[opcao] = novoNome
+			escreva("\nNome atualizado com sucesso!\n")
 			pare
 
 			caso 2: 
-			escreva("Escreva o novo ano do lançamento do filme: ")
+			escreva("\nEscreva o novo ano do lançamento do filme: ")
 			leia(novoAno)
-			anosLancamentos[opcao]=novoAno
-			escreva("Ano de lançamento atualizado com sucesso!")
+			anosLancamentos[opcao] = novoAno
+			escreva("\nAno de lançamento atualizado com sucesso!\n")
 			pare
 
 			caso 3:
-			escreva("Escreva a nova quantidade de vezes que o filme foi locado: ")
+			escreva("\nEscreva a nova quantidade de vezes que o filme foi locado: ")
 			leia(novaQuantidadeLocacoes)
-			vezesLocado[opcao]=novaQuantidadeLocacoes
-			escreva("Quantidade de locações atualizado com sucesso!")
+			vezesLocado[opcao] = novaQuantidadeLocacoes
+			escreva("\nQuantidade de locações atualizado com sucesso!\n")
 			pare
 
 			caso 4:
-			escreva("Informe o novo status(1=Locado/2=Diponível): ")
+			escreva("\nInforme o novo status(1=Locado/2=Diponível): ")
 			leia(k)
-			se(k==1){
-				locado[opcao]=verdadeiro
+			se(k == 1){
+				locado[opcao] = verdadeiro
 			}senao{
-				locado[opcao]=falso
+				locado[opcao] = falso
 			}
-			escreva("Status atualizado com sucesso!")
+			escreva("\nStatus atualizado com sucesso!\n")
 			pare
 
 			caso contrario: 
-			escreva("Opção inválida")
+			escreva("\nOpção inválida!\n")
 		}
 	}
 
 	funcao estatisticasGerais(){
 		real taxaOcupacao
-		inteiro i, totalLocados=0
+		inteiro i, totalLocados = 0
 		se(quantidade == 0){
-			escreva("Nenhum filme cadastrado!")
+			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		para(i=0;i<quantidade;i++){
+		para(i = 0; i < quantidade; i++){
 			se(locado[i]){
 				totalLocados++
 			}
 		}
-		taxaOcupacao=(totalLocados*100.0)/quantidade
-		escreva("Estatísticas gerais")
-		escreva("Total de filmes cadastrados: ",quantidade)
-		escreva("Total de filmes locados: ",totalLocados)
-		escreva("Percentual de ocupação: ",taxaOcupacao, "%")
+		taxaOcupacao = (totalLocados * 100.0) / quantidade
+		escreva("\n---- ESTATISTICAS GERAIS ----\n")
+		escreva("\nTotal de filmes cadastrados: ", quantidade)
+		escreva("\nTotal de filmes locados: ", totalLocados)
+		escreva("\nPercentual de ocupação: ", taxaOcupacao, "%")
+		escreva("\n------------------------------------------\n")
 	}
 
 	funcao sair(){
-		escreva("Saindo...")
+		escreva("\nSaindo...")
 	}
 
 	funcao apresentar(){
