@@ -63,22 +63,34 @@ programa
 			}
 		}
 	}
+	funcao inteiro validadorDeLocacao(){
+		inteiro i, statusLocacao = 0
+		para (i = 0; i < quantidade; i++){
+			se(locado[i]){
+				retorne 1
+			}						
+		}
+		retorne 0		
+	}
 
 	funcao filmesLocados(){
-		inteiro i
+		inteiro i, locacoes
 		se(quantidade == 0){
 			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
+		locacoes = validadorDeLocacao()
+		se( locacoes == 1){
 		escreva("\n---- FILMES LOCADOS ----\n")
 		para(i = 0; i < quantidade; i++){
 			se(locado[i]){
 				escreva(nomesFilmes[i], "\n")
-			}senao{
-				escreva("\nNenhum filme foi locado no momento!\n")
+				}
 			}
-		}
+		}senao{
+		escreva("\nNenhum filme Locado!\n")	
 		escreva("\n------------------------------------------\n")
+		}
 	}
 
 	funcao alugarFilme(){
@@ -457,4 +469,3 @@ programa
 		menuPrincipal()
 	}
 }
-
