@@ -153,7 +153,7 @@ programa
 		escreva("\nAno de lançamento: ", anosLancamentos[indiceMaior])
 		escreva("\nQuantidade de vezes locado: ", vezesLocado[indiceMaior])
 		se(locado[indiceMaior]){
-			escreva("\nFilme locado\n.")
+			escreva("\nFilme locado.\n")
 		}senao{
 			escreva("\nFilme disponível.\n")
 		}
@@ -240,7 +240,7 @@ programa
 			pare
 
 			caso 4:
-			escreva("\nInforme o novo status(1=Locado/2=Diponível): ")
+			escreva("\nInforme o novo status(1-Locado/2-Diponível): ")
 			leia(k)
 			se(k == 1){
 				locado[opcao] = verdadeiro
@@ -310,7 +310,7 @@ programa
     		escreva("")
     		escreva("\nEquipe de Desenvolvimento:")
     		escreva("\n - Vinicius")
-    		escreva("\n - Kaik")
+    		escreva("\n - Kaiky")
     		escreva("\n - Douglas")
     		escreva("")
     		escreva("\nPressione Enter para continuar...")
