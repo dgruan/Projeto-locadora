@@ -9,7 +9,7 @@ programa
 			escreva("\nNenhum filme cadastrado!\n")
 			retorne
 		}
-		escreva("\nFilmes disponíveis: ")
+		escreva("\n---- FILMES DISPONIVEIS ----\n")
 		inteiro i
 		para(i = 0; i < quantidade; i++){
 			se(locado[i] == falso){
@@ -41,37 +41,6 @@ programa
 			escreva("\nFilme cadastrado com sucesso!")
 			escreva("\n------------------------------------------\n")
 	}
-	
-	funcao listarFilmes(){
-		inteiro i
-		se(quantidade == 0){
-			escreva("\nNenhum filme cadastrado\n")
-		}senao{
-			escreva("\n---- LISTA DE FILMES ----\n")
-			para(i = 0; i < quantidade; i++){
-				se(nomesFilmes[i] == " "){	
-				}
-				 escreva("Nome do filme: ", nomesFilmes[i])
-				 escreva("\nData de lançamento: ", anosLancamentos[i])
-				 escreva("\nQuantidade de vezes que foi locado: ", vezesLocado[i])
-				 se(locado[i]){
-				 	escreva("\nLocado.\n")
-				 }senao{
-				 	escreva("\nDisponivel.\n")
-				}
-				 escreva("\n------------------------------------------\n")
-			}
-		}
-	}
-	funcao inteiro validadorDeLocacao(){
-		inteiro i, statusLocacao = 0
-		para (i = 0; i < quantidade; i++){
-			se(locado[i]){
-				retorne 1
-			}						
-		}
-		retorne 0		
-	}
 
 	funcao filmesLocados(){
 		inteiro i, locacoes
@@ -89,9 +58,25 @@ programa
 			}
 		}senao{
 		escreva("\nNenhum filme Locado!\n")	
-		escreva("\n------------------------------------------\n")
+		escreva("------------------------------------------\n")
 		}
 	}
+	
+	funcao listarFilmes(){
+		escreva("\n---- LISTA DE FILMES ----\n")
+		filmesLocados()
+		filmesDisponiveis()
+	}
+	funcao inteiro validadorDeLocacao(){
+		inteiro i, statusLocacao = 0
+		para (i = 0; i < quantidade; i++){
+			se(locado[i]){
+				retorne 1
+			}						
+		}
+		retorne 0		
+	}
+
 
 	funcao alugarFilme(){
 		inteiro opcao
@@ -291,7 +276,7 @@ programa
 	}
 
 	funcao sair(){
-		escreva("\nSaindo...")
+		escreva("\nSaindo...\n")
 	}
 
 	funcao apresentar(){
