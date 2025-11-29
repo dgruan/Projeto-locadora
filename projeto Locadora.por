@@ -33,8 +33,12 @@ programa
 					retorne
 				}
 			}
-			escreva("Digite o ano de lançamento: ")
+			escreva("Digite o ano de lançamento entre 1888 e 2025: ")
 			leia(anosLancamentos[quantidade])
+			se(anosLancamentos[quantidade] < 1888 ou anosLancamentos[quantidade] > 2025){
+				escreva("Ano de lançamento inválido. Tente novamente: ")
+				leia(anosLancamentos[quantidade])
+			}
 			vezesLocado[quantidade] = 0
 			locado[quantidade] = falso
 			quantidade++
