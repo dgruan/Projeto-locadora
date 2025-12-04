@@ -361,56 +361,58 @@ programa
             		
             		listarFilmes()
             		
-				pare
+					pare
 
-				caso 3: 
+					caso 3: 
 				
-				filmesLocados()
+					filmesLocados()
 				
-				pare
+					pare	
 
-           		caso 4: 
+           			caso 4: 
            		
-           		alugarFilme()
+           			alugarFilme()
            		
-           		pare
+           			pare
 
-           		caso 5:
+           			caso 5:
            		
-           		devolverFilme()
+           			devolverFilme()
            		
-           		pare
+           			pare
 
-           		caso 6: 
+           			caso 6: 
            		
-           		filmeMaisLocado()
+           			filmeMaisLocado()
            		
-           		pare
+           			pare
 
-           		caso 7: 
+           			caso 7: 
            		
-           		buscarFilme()
+           			buscarFilme()
            		
-           		pare
+           			pare
 
-           		caso 8: 
+           			caso 8: 
            		
-           		atualizarDadosDoFilme()
+           			atualizarDadosDoFilme()
            		
-           		pare
+           			pare
 
-           		caso 9: 
+           			caso 9: 
            		
-           		estatisticasGerais()
+           			estatisticasGerais()
            		
-           		pare
+           			pare
 
-           		caso 10: 
-           		sair()
-           		pare
+           			caso 10: 
 
-				caso contrario: 
-				escreva("\nOpção invalida! Tente novamente.\n")
+           			sair()
+
+           			pare
+
+					caso contrario: 
+					escreva("\nOpção invalida! Tente novamente.\n")
             	}
             	
 		}
@@ -458,3 +460,4 @@ programa
 		menuPrincipal()
 	}
 }
+
